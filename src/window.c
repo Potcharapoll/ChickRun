@@ -35,10 +35,10 @@ void destroyWindow(Window* window) {
   SDL_Log("Cleaning up program!\n");
   quitGame();
 
-  DEBUGTXT("destroy windoe->renderer\n");
+  DEBUGTXT("destroy window->renderer\n");
   SDL_DestroyRenderer(window->renderer);
   
-  DEBUGTXT("destroy windoe->window\n");
+  DEBUGTXT("destroy window->window\n");
   SDL_DestroyWindow(window->window);
 
   DEBUGTXT("Quit SDL\n");
