@@ -19,6 +19,7 @@
 #define OBSTACLE_POSY         WINDOW_HEIGHT-100-(SCALE*2)
 #define PLATFORM_POSY         WINDOW_HEIGHT-100-SCALE
 
+#define FREE(ptr) ({free(ptr); ptr=NULL;})
 #ifndef DEBUG
   #define DEBUGTXT(...)
 #elif DEBUG

@@ -4,15 +4,15 @@
 #include "texture.h"
 #include <SDL2/SDL_ttf.h>
 
-static TTF_Font     *FONT;
 static Text         *scoreTxt[2];
 static Text         *startScreenTxt[2];
 static Text         *gameOverTxt;
+static TTF_Font     *FONT;
 static SDL_Texture  *startScreen;
 static SDL_Texture  *inGameScreen;
 
 static Text* setProperties(SDL_Rect dst, TTF_Font *font, const char* txt) {
-  Text* tmp = (Text*)malloc(sizeof(Text));
+  Text* tmp = malloc(sizeof(Text));
   tmp->dst = dst;
   tmp->font = font;
   strcpy(tmp->txt, txt);
@@ -32,6 +32,7 @@ void initUI(Window* window) {
   } else {
     SDL_Log("'%s' Loaded\n", FONTPATH);
   }
+
   scoreTxt[0] = setProperties(setRect(10,10,175,50), FONT, "00000000");
   scoreTxt[1] = setProperties(setRect(10+180, 30, 50, 20), FONT, "x1.0");
 
@@ -84,12 +85,10 @@ void destroyStartScreen(void) {
   SDL_DestroyTexture(startScreenTxt[1]->texture);
 
   DEBUGTXT("StartTxt[0] Freed!\n");
-  free(startScreenTxt[0]);
-  startScreenTxt[0] = NULL;
+  FREE(startScreenTxt[0]);
 
   DEBUGTXT("StartTxt[1] Freed!\n");
-  free(startScreenTxt[1]);
-  startScreenTxt[1] = NULL;
+  FREE(startScreenTxt[1]);
 }
 
 void destroyUI(void) {
@@ -103,16 +102,13 @@ void destroyUI(void) {
   SDL_DestroyTexture(scoreTxt[1]->texture);
 
   DEBUGTXT("ScoreTxt[0] Freed!\n");
-  free(scoreTxt[0]);
-  scoreTxt[0] = NULL;
+  FREE(scoreTxt[0]);
 
   DEBUGTXT("ScoreTxt[1] Freed!\n");
-  free(scoreTxt[1]);
-  scoreTxt[1] = NULL;
+  FREE(scoreTxt[1]);
 
   DEBUGTXT("gameOverTxt Freed!\n");
-  free(gameOverTxt);
-  gameOverTxt = NULL;
+  FREE(gameOverTxt);
 
   DEBUGTXT("Close Font!\n");
   TTF_CloseFont(FONT);

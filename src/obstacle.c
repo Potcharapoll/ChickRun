@@ -1,14 +1,15 @@
 #include "obstacle.h"
-#include "defs.h"
 #include "texture.h"
 #include "types.h"
+#include "defs.h"
 #ifdef DEBUG
 #include "render.h"
 #endif
 
-static SDL_Texture *singleChick, *doubleChick;
-static SDL_Rect    playerDst;
-static SDL_Rect    obstacleDst;
+static SDL_Texture *singleChick;
+static SDL_Texture *doubleChick;
+static SDL_Rect playerDst;
+static SDL_Rect obstacleDst;
 
 static void setObstaclePos(u8 idx, Obstacle* self) {
   switch (idx) {

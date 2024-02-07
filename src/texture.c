@@ -4,7 +4,7 @@
 #include "defs.h"
 #include "types.h"
 
-static SDL_Surface     *surface;
+static SDL_Surface *surface;
 static const SDL_Color white = {255,255,255,255};
 
 SDL_Texture * loadTexture(Window* window, const char* path) {

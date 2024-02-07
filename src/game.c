@@ -1,19 +1,17 @@
 #include "game.h"
-#include "ui.h"
 #include "defs.h"
 #include "player.h"
 #include "obstacle.h"
 #include "texture.h"
 #include "platform.h"
-#include <SDL2/SDL_timer.h>
 
-static Game game;
+static GameState gameState;
 static Player player;
 static Platform platform;
 static Obstacle obstacle;
 
 static void setup(Window* window) {
-  game.game_state = START;
+  gameState = START;
   initTexture();
   initUI(window);
   initObstacle(window);
@@ -31,9 +29,9 @@ static void processInput(Window* window) {
       case SDL_KEYDOWN:
         switch(window->event.key.keysym.sym) {
           case SDLK_SPACE:
-            if (game.game_state == START) {
+            if (gameState == START) {
               destroyStartScreen();
-              game.game_state = INGAME;
+              gameState = INGAME;
             }
             break;
           case SDLK_ESCAPE:
@@ -47,7 +45,7 @@ static void processInput(Window* window) {
 }
 
 static void update(Window* window) {
-  if (game.game_state == INGAME && !player.isDeath) {
+  if (gameState == INGAME && !player.isDeath) {
     updateIngameUI(window, &player);
     updatePlatform(&platform, &player);
     updatePlayer(&player);
@@ -57,9 +55,10 @@ static void update(Window* window) {
 
 static void render(Window* window) {
   SDL_RenderClear(window->renderer);
-  if (game.game_state == START) {
+  if (gameState == START) {
     renderStartScreenUI(window);
-  } else if (game.game_state == INGAME) {
+  } 
+  else if (gameState == INGAME) {
     renderIngameUI(window);
     renderPlatform(window, &platform);
     renderPlayer(window, &player);

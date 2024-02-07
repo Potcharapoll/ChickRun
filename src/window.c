@@ -10,8 +10,8 @@ int initWindow(Window* window) {
   } else {
     SDL_Log("SDL initialized!\n");
   }
-  window->window = SDL_CreateWindow("ChickRun",SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-      WINDOW_WIDTH, WINDOW_HEIGHT, 0);
+
+  window->window = SDL_CreateWindow("ChickRun",SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
   if (!window->window) {
     SDL_Log("Failed to create window!\n");
     SDL_Log("%s\n", SDL_GetError());
@@ -19,6 +19,7 @@ int initWindow(Window* window) {
   } else {
     SDL_Log("Create window successfully!\n");
   }
+
   window->renderer = SDL_CreateRenderer(window->window, -1, SDL_RENDERER_ACCELERATED);
   if (!window->renderer) {
     SDL_Log("Failed to create renderer!\n");

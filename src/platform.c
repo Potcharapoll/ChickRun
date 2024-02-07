@@ -30,12 +30,12 @@ void CollisionDetection(Platform* platform, Player* player) {
   if (PlayerX+PlayerW > PlatformX && PlayerX < PlatformX+PlatformW) {
     if (PlayerY < PlatformY+PlatformH && PlayerY+PlayerH > PlatformY) {
       player->y = PlatformY+PlayerH;
-      player->vel_y = 0;
+      player->dy = 0;
       player->isGrounded = true;
     }
     if (PlayerY+PlayerH > PlatformY && PlayerY < PlatformY) {
       player->y = PlatformY-PlayerH;
-      player->vel_y = 0;
+      player->dy = 0;
       player->isGrounded = true;
     }  
   }

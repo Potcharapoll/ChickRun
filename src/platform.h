@@ -12,7 +12,7 @@ typedef struct {
 
 enum Level {
   GRASS_LEVEL = 0,
-  CAVE_LEVEL = 1
+  CAVE_LEVEL
 };
 
 void initPlatform(Window* window, Platform* platform);

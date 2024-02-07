@@ -1,7 +1,6 @@
 #include "game.h"
 #include "window.h"
 
-
 static Window window;
 
 void cleanup() {

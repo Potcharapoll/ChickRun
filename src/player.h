@@ -7,9 +7,9 @@
 
 typedef struct {
   SDL_Texture* texture;
-  f32 x, y, vel_x, vel_y;
+  f32 x, y, dx, dy;
   f32 jump_time, jump_force;
-  f64 score, scoreMultiplier;
+  f32 score, scoreMultiplier;
   bool isGrounded, isJumping, isDeath;
 }Player;
 

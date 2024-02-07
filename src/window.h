@@ -2,7 +2,6 @@
 #define WINDOW_H
 #include <SDL2/SDL.h>
 #include <stdbool.h>
-#include "types.h"
 
 typedef struct {
   SDL_Window* window;

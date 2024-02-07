@@ -2,9 +2,9 @@
 #define UI_H
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include "player.h"
 #include "defs.h"
 #include "types.h"
-#include "player.h"
 
 typedef struct {
   char txt[MAXLEN];
