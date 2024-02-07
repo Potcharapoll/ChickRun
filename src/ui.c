@@ -46,6 +46,7 @@ void initUI(Window* window) {
 
   loadTextTexture(window, startScreenTxt[0]);
   loadTextTexture(window, startScreenTxt[1]);
+  loadTextTexture(window, gameOverTxt);
 }
 
 void updateIngameUI(Window* window, Player* player) {
@@ -70,7 +71,6 @@ void renderStartScreenUI(Window* window) {
 }
 
 void renderGameOver(Window* window) {
-  loadTextTexture(window, gameOverTxt);
   SDL_RenderCopy(window->renderer, gameOverTxt->texture, NULL, &gameOverTxt->dst);
 }
 
