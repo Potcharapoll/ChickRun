@@ -20,4 +20,4 @@ make run
 # Dependencies
   * Ubuntu/Mint: `libsdl2 libsdl2-dev libjpeg-dev libwebp-dev libtiff5-dev libsdl2-image-dev libsdl2-image libfreetype6-dev libsdl2-ttf-dev libsdl2-ttf`
   * ArchLinux: `sdl2 sdl2_image sdl2_ttf`
-  * Gentoo: `media-libs/libsdl2 media-libs/sdl2-iamge media-libs/sdl2-ttf`
+  * Gentoo: `media-libs/libsdl2 media-libs/sdl2-image media-libs/sdl2-ttf`
